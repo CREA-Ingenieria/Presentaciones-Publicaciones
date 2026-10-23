@@ -1,0 +1,14 @@
+{
+  "name": "crea-publicaciones",
+  "description": "Skill de Claude Code del Laboratorio CREA para publicaciones de Instagram, Universidad de los Andes.",
+  "owner": {
+    "name": "Laboratorio CREA - Universidad de los Andes"
+  },
+  "plugins": [
+    {
+      "name": "publicaciones-crea",
+      "source": "./plugins/publicaciones-crea",
+      "description": "Publicaciones de Instagram con el estilo visual y el lenguaje de CREA (JPG, MP4 y caption)."
+    }
+  ]
+}
