@@ -1,8 +1,0 @@
-{
-  "name": "publicaciones-crea",
-  "displayName": "Publicaciones CREA",
-  "version": "1.0.0",
-  "description": "Publicaciones de Instagram (crónica, historia, carrusel, convocatoria) con el estilo CREA: JPG, MP4 en bucle y caption listo para copiar.",
-  "author": { "name": "Laboratorio CREA - Universidad de los Andes" },
-  "repository": "https://github.com/CREA-Ingenieria/Presentaciones-Publicaciones"
-}

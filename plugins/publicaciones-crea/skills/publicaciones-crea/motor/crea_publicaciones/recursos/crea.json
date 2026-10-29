@@ -1,0 +1,60 @@
+{
+  "_leeme": "Datos fijos del Laboratorio CREA para las publicaciones. Cada dato dice si está confirmado y de dónde salió. Un dato 'por validar' no se publica sin preguntar. Se actualiza con una PR; ver referencia/crea.md.",
+  "laboratorio": {
+    "nombre": "Laboratorio CREA",
+    "facultad": "Facultad de Ingeniería",
+    "universidad": "Universidad de los Andes",
+    "ciudad": "Bogotá"
+  },
+  "biografia": {
+    "valor": "¡Trae a tu colegio y transforma la creatividad en realidad!",
+    "estado": "confirmado",
+    "fuente": "biografía de @crea_uniandes (análisis de la cuenta, 2026-09)"
+  },
+  "contacto": [
+    {"icono": "@", "valor": "@crea_uniandes", "estado": "confirmado", "fuente": "instagram.com/crea_uniandes"},
+    {"icono": "laptop", "valor": "crea.uniandes.edu.co", "estado": "confirmado", "fuente": "sitio del laboratorio"},
+    {"icono": "paper", "valor": "crea@uniandes.edu.co", "estado": "por validar",
+     "fuente": "solo aparece en el ejemplo de convocatoria del Kit CREA"},
+    {"icono": "pin", "valor": "Centro de Bienvenida, Universidad de los Andes", "estado": "confirmado",
+     "fuente": "crea.uniandes.edu.co"}
+  ],
+  "talleres": [
+    {"nombre": "AguaLab", "acento": "T", "iconos": ["flask", "eye", "recycle"], "hashtags": ["#AguaLab"],
+     "que_se_hace": "Muestras reales de agua: parámetros fisicoquímicos y diseño de filtros.",
+     "estado": "confirmado", "fuente": "Kit CREA (guía de publicaciones y ejemplo de crónica)"},
+    {"nombre": "Mothbot", "acento": "B", "iconos": ["robot", "bulb", "cogs"], "hashtags": ["#Mothbot"],
+     "que_se_hace": "Un robot pequeño seguidor de luz con componentes sencillos; electrónica básica: voltaje, corriente, resistencias y LEDs. Se acompaña de un brazo robótico de demostración.",
+     "estado": "confirmado", "fuente": "confirmado por CREA (encargo Garcés Navas IED, 2026-10-28)"},
+    {"nombre": "Ciencia de Cohetes", "acento": "O", "iconos": ["rocket", "launch", "distance"], "hashtags": [],
+     "que_se_hace": "",
+     "estado": "confirmado", "fuente": "Kit CREA (tabla de acentos por taller); el contenido falta"},
+    {"nombre": "Diseñadores del Futuro", "acento": "M", "iconos": ["drafting", "palette", "shapes"], "hashtags": [],
+     "que_se_hace": "",
+     "estado": "confirmado", "fuente": "Kit CREA (tabla de acentos por taller); el contenido falta"},
+    {"nombre": "CREA tu propio videojuego", "acento": "T", "iconos": ["code", "laptop", "play"], "hashtags": [],
+     "que_se_hace": "Un juego tipo «collector» en HTML, CSS y JavaScript, personalizable con imágenes y sonidos.",
+     "estado": "por validar",
+     "fuente": "github.com/CREA-Ingenieria/crea-tu-propio-videojuego; en la tabla de acentos del Kit aparece «Programación web»: confirmar si es el mismo taller"},
+    {"nombre": "Explorando nuevos planetas", "acento": null, "iconos": ["rocket", "atom", "target"], "hashtags": [],
+     "que_se_hace": "Para 13 a 17 años.",
+     "estado": "por validar", "fuente": "crea.uniandes.edu.co/talleres (visto solo en un resumen de búsqueda)"},
+    {"nombre": "Sé lo que quieras ser", "acento": null, "iconos": ["users", "bulb", "tools"], "hashtags": [],
+     "que_se_hace": "Para 9 a 12 años.",
+     "estado": "por validar", "fuente": "crea.uniandes.edu.co/talleres (visto solo en un resumen de búsqueda)"}
+  ],
+  "hashtags": {
+    "fijos": ["#LaboratorioCREA"],
+    "habituales": ["#EducaciónSTEAM", "#uniandesciam", "#MujeresEnSTEAM", "#STEM", "#Ingeniería"]
+  },
+  "aliados": [
+    {"nombre": "Bancolombia", "cuenta": "@bancolombia", "estado": "confirmado",
+     "nota": "Organizó el encuentro del taller Mothbot con el Colegio Garcés Navas IED en su sede del Centro Internacional (Ak. 7 #32-28), octubre de 2026."},
+    {"nombre": "SLB", "cuenta": null, "estado": "por validar",
+     "nota": "Aliado institucional: sus logos vienen en la plantilla de CREA. Confirmar la cuenta antes de etiquetar."}
+  ],
+  "personajes": [
+    {"nombre": "Séneca", "que_es": "La mascota de CREA (la cabra).", "archivos": ["mascota/seneca_saludo.png", "mascota/seneca_guino.png", "mascota/seneca_baile.png"]},
+    {"nombre": "CREABOT", "que_es": "El robot de CREA, del taller «CREA tu propio videojuego».", "archivos": ["ilustraciones/creabot.png"]}
+  ]
+}
