@@ -13,6 +13,7 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). Versiones:
 - `entorno/revisar.py` revisa Node e imprime `ANIMADO=si|no`: sin Node, solo versiones estáticas.
 - Referencias nuevas: `crea.md` (el set), `estilos.md` (cómo elegir), `movimiento.md` (animado y reel), `revision-visual.md` (lista de revisión y decisiones de CREA con fecha) y `galeria.md`.
 - Ejemplos aprobados con fotos de demostración: `build_estilos.py` (los tres estilos, estático y animado) y `build_reel.py`, con sus imágenes de referencia en `ejemplos/galeria/`.
+- README visual: banner, piezas, los tres estilos (estático y animado en GIF), el reel, las animaciones en bucle, el flujo de trabajo, la revisión automática, la paleta, los personajes y los 68 íconos. Las imágenes salen del motor con `docs/readme/generar.py`.
 
 ### Cambiado
 - `SKILL.md` reescrita con un mapa de decisiones (qué pieza, qué estilo, estática o animada, reel) y el flujo apoyado en el set de CREA y en la revisión visual.
