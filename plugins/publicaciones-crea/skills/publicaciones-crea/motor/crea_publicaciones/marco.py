@@ -10,7 +10,7 @@ que sí pueden chocar con el texto si alguien mueve la retícula.
 """
 import difflib
 
-from PIL import Image, ImageDraw
+from PIL import Image
 
 from .base import DARK, MARGEN, MARCA, RECURSOS, WHITE, B, ErrorCREA, M, O, Pieza, T, Y
 

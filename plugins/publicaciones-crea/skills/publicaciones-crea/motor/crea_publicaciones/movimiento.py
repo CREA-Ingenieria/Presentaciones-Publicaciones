@@ -105,12 +105,6 @@ def proyecto(carpeta, *, titulo, bajada='', chip=None, acento=T, iconos=(), foto
     foto_html = ('<div id="foto-caja" data-layout-allow-overflow><div id="foto-mueve"><img id="foto" src="assets/foto.jpg"></div></div>'
                  if not video else '<div id="foto-caja" data-layout-allow-overflow><img id="fondo-video" src="assets/fondo-video.jpg"></div>')
     seg = M if acento != M else T
-    # El reel pone letra sobre el acento a pantalla completa: con turquesa o naranja, la letra va oscura y la
-    # palabra destacada, amarilla sobre una etiqueta oscura (el amarillo sobre esos acentos no se lee).
-    sobre = tinta(acento)
-    titulo_claro = acento if contraste(acento, WHITE) >= 3 else DARK
-    destacado = (f'color: {Y};' if contraste(Y, acento) >= 3 else
-                 f'color: {Y}; background: {DARK}; padding: 0 0.14em; border-radius: 0.12em;')
     css = f"""
       @font-face {{ font-family: 'CREA'; src: url('assets/fonts/Montserrat-Regular.ttf'); font-weight: 400; }}
       @font-face {{ font-family: 'CREA'; src: url('assets/fonts/Montserrat-SemiBold.ttf'); font-weight: 600; }}
@@ -369,7 +363,7 @@ def proyecto_capas(carpeta, pieza, estilo, video=None, desde=0, hasta=None, ajus
                       f"duration: {dur}, ease: 'steps({letras})' }}, {t:.2f});\n")
         t += dur + 0.05
     if any(c.rol == 'cursor' for c in encima):
-        escritura += f"tl.set('#cursor', {{ opacity: 0 }}, 0);\n"
+        escritura += "tl.set('#cursor', { opacity: 0 }, 0);\n"
         k, visible = t, True
         while k < duracion - 0.05:
             escritura += f"tl.set('#cursor', {{ opacity: {1 if visible else 0} }}, {k:.2f});\n"

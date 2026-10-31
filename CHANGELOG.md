@@ -13,6 +13,7 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). Versiones:
 - `entorno/revisar.py` revisa Node e imprime `ANIMADO=si|no`: sin Node, solo versiones estáticas.
 - Referencias nuevas: `crea.md` (el set), `estilos.md` (cómo elegir), `movimiento.md` (animado y reel), `revision-visual.md` (lista de revisión y decisiones de CREA con fecha) y `galeria.md`.
 - Ejemplos aprobados con fotos de demostración: `build_estilos.py` (los tres estilos, estático y animado) y `build_reel.py`, con sus imágenes de referencia en `ejemplos/galeria/`.
+- Más poses de las mascotas (`personajes.py`, `referencia/personajes.md`): CREABOT redibujado en vector con 14 poses (feliz, guiño, mira, sorpresa, pensando, salta, camina, celebra, pantalla con ícono o texto, cargando, corazones, dormido) y variantes de Séneca (espejo con el logo legible, asoma, cabeza en círculo y el buzo en el color del taller). `sticker='creabot:<pose>'`, `p.mascota(pose=, buzo=)` y `p.img()` con una imagen ya hecha.
 - README visual: banner, piezas, los tres estilos (estático y animado en GIF), el reel, las animaciones en bucle, el flujo de trabajo, la revisión automática, la paleta, los personajes y los 68 íconos. Las imágenes salen del motor con `docs/readme/generar.py`.
 
 ### Cambiado

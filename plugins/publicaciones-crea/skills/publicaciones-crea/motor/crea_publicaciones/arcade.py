@@ -12,7 +12,7 @@ import random
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from .base import (DARK, ILUSTRACIONES, MARGEN, WHITE, B, ErrorCREA, M, O, Pieza, T, Y, cubrir, envolver, font,
+from .base import (ILUSTRACIONES, MARGEN, WHITE, B, ErrorCREA, M, O, Pieza, T, Y, cubrir, envolver, font,
                    recortar_capa)
 from .marco import ruta_icono
 

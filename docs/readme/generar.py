@@ -3,7 +3,7 @@
     <PYTHON> docs/readme/generar.py [--sin-animado]
 
 Corre los ejemplos de la skill (con --animado y --render, que necesitan Node) y arma con lo que sale
-el banner, las piezas, los estilos, el flujo, los recursos, la revisión y los GIF. Sin fotos de
+el banner, las piezas, los estilos, el flujo, los recursos, la revisión, las mascotas y los GIF. Sin fotos de
 estudiantes: todo sale de ejemplos/fotos.
 """
 import subprocess
@@ -199,6 +199,36 @@ def revision():
     lienzo.convert('RGB').save(AQUI / 'revision.jpg', quality=86, optimize=True)
 
 
+def hoja_personajes(nombre, poses, dibujar, cols=5, celda=(300, 400)):
+    """Todas las poses de una mascota con su nombre, para la galería y el README."""
+    cw, ch = celda
+    filas = -(-len(poses) // cols)
+    lienzo = fondo(cols * cw + 80, filas * ch + 150, opacidad=0.05)
+    d = ImageDraw.Draw(lienzo)
+    texto(d, (40, 40), nombre, 44, 'eb')
+    for i, (etiqueta, im) in enumerate((e, dibujar(*a)) for e, *a in poses):
+        x, y = 40 + (i % cols) * cw, 120 + (i // cols) * ch
+        im.thumbnail((cw - 30, ch - 90), Image.LANCZOS)
+        lienzo.alpha_composite(im, (x + (cw - im.width) // 2, y + ch - 80 - im.height))
+        texto(d, (x + cw // 2, y + ch - 40), etiqueta, 24, 'sb', DARK, 'mm')
+    return lienzo.convert('RGB')
+
+
+def personajes():
+    from crea_publicaciones.personajes import POSES_CREABOT, creabot, seneca
+    galeria = EJEMPLOS / 'galeria'
+    poses = [(p, p) for p in POSES_CREABOT] + [("pantalla '</>'", 'pantalla', '</>')]
+    hoja_personajes('CREABOT', poses, lambda pose, pantalla=None: creabot(pose, 360, pantalla)).save(
+        galeria / 'personajes-creabot.jpg', quality=88, optimize=True)
+    poses = [('saludo', 'saludo', 'T'), ('guino', 'guino', 'T'), ('baile', 'baile', 'T'),
+             ('saludo-espejo', 'saludo-espejo', 'T'), ('baile-espejo', 'baile-espejo', 'T'),
+             ("buzo='M'", 'saludo', 'M'), ("buzo='O'", 'saludo', 'O'), ("guino-espejo · buzo='B'", 'guino-espejo', 'B'),
+             ('asoma', 'asoma', 'T'), ("asoma-espejo · 'O'", 'asoma-espejo', 'O'), ('cabeza', 'cabeza', 'T'),
+             ("cabeza · 'M'", 'cabeza', 'M'), ("cabeza · 'B'", 'cabeza', 'B')]
+    hoja_personajes('Séneca', poses, lambda pose, buzo: seneca(pose, 360, buzo)).save(
+        galeria / 'personajes-seneca.jpg', quality=88, optimize=True)
+
+
 def gif(origen, destino, ancho, fps=15, colores=128):
     filtro = (f'fps={fps},scale={ancho}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors={colores}'
               f':stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle')
@@ -248,6 +278,7 @@ if __name__ == '__main__':
     iconos()
     marca()
     revision()
+    personajes()
     bucles()
     if animado:
         animados()

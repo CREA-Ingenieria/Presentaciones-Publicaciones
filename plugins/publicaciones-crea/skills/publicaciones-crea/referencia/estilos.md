@@ -28,7 +28,7 @@ Cuando la persona pide «variantes» o «otros estilos», entrega los tres (est�
 
 **Qué lo define:** un collage impreso. Papel crema con grano; semitono en las tintas de la marca (el acento arriba a la derecha, magenta abajo a la izquierda); la foto como copia impresa con margen blanco, girada 2,5° y pegada con dos cintas; el `chip` como **sello de goma**; los íconos como **stickers** troquelados; el titular con la **sombra corrida** de una impresión mal registrada; la bajada en una nota de papel; el rayo dibujado y la línea de la pared.
 
-**Parámetro propio:** `sticker='creabot'` o `'seneca'` pone un sticker grande junto al título. Úsalo en la primera lámina (CREABOT en robótica o programación) y en la de cierre o agradecimiento (Séneca). No en todas: si todas lo llevan, deja de decir algo.
+**Parámetro propio:** `sticker='creabot'` o `'seneca'` pone un sticker grande junto al título; también acepta una pose (`'creabot:salta'`, `'seneca:baile-espejo'`, ver `personajes.md`). Úsalo en la primera lámina (CREABOT en robótica o programación) y en la de cierre o agradecimiento (Séneca). No en todas: si todas lo llevan, deja de decir algo.
 
 **Cuida:**
 - El sello no puede salirse del margen ni del cuadrado del perfil (el motor lo vigila).

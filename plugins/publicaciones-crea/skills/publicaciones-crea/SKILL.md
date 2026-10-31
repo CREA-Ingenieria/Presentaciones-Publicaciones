@@ -75,6 +75,7 @@ Reglas del mapa:
 | Animación en bucle del motor (burbujas, código, parpadeo) | `referencia/animaciones.md` |
 | Antes de mostrar o entregar | `referencia/revision-visual.md` |
 | Partir de algo aprobado | `referencia/galeria.md` y `ejemplos/` |
+| Poner a Séneca o a CREABOT | `referencia/personajes.md` (las poses y cuándo usar cada una) |
 | El caption | `referencia/caption.md`; en `MODO=autonomo`, también `referencia/voz-crea.md` |
 | Algo falló | `referencia/errores-conocidos.md` |
 

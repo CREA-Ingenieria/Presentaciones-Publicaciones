@@ -3,7 +3,6 @@
 Todas las medidas van en píxeles sobre el lienzo de Instagram (1080 de ancho). Las piezas
 de piezas.py se construyen sobre `Pieza`; los scripts casi nunca dibujan a mano.
 """
-import os
 import platform
 import shutil
 import subprocess
@@ -387,7 +386,8 @@ class Pieza:
         return caja
 
     def img(self, ruta, x, y, alto=None, ancho=None):
-        im = abrir(ruta).convert('RGBA')
+        """Pega una imagen (una ruta, o una imagen ya hecha, como una pose de `personajes`)."""
+        im = (ruta if isinstance(ruta, Image.Image) else abrir(ruta)).convert('RGBA')
         if alto:
             ancho = round(im.width * alto / im.height)
         elif ancho:
@@ -396,17 +396,19 @@ class Pieza:
             ancho, alto = im.size
         im = im.resize((ancho, alto), Image.LANCZOS)
         self.im.alpha_composite(im, (int(x), int(y)))
-        self._anotar((x, y, x + ancho, y + alto), Path(ruta).name)
+        self._anotar((x, y, x + ancho, y + alto), 'imagen' if isinstance(ruta, Image.Image) else Path(ruta).name)
         return (x, y, ancho, alto)
 
-    def mascota(self, x, y, alto=520, pose='saludo'):
-        """Séneca. Guarda lo que había debajo para poder hacerla parpadear."""
-        if pose not in ('saludo', 'guino'):
-            raise ErrorCREA('Séneca solo tiene dos poses: "saludo" y "guino"')
-        antes = self.im.copy()
-        caja = self.img(MASCOTA / f'seneca_{pose}.png', x, y, alto=alto)
-        self._mascota = {'caja': caja, 'antes': antes}
-        return caja
+    def mascota(self, x, y, alto=520, pose='saludo', buzo='T'):
+        """Séneca. Con 'saludo' o 'guino' (y el buzo turquesa) guarda lo que había debajo para poder hacerla parpadear;
+        las otras poses y colores de buzo salen de `personajes.seneca`."""
+        if pose in ('saludo', 'guino') and buzo == 'T':
+            antes = self.im.copy()
+            caja = self.img(MASCOTA / f'seneca_{pose}.png', x, y, alto=alto)
+            self._mascota = {'caja': caja, 'antes': antes}
+            return caja
+        from .personajes import seneca
+        return self.img(seneca(pose, alto=alto, buzo=buzo), x, y)
 
     @staticmethod
     def ancho_mascota(alto):

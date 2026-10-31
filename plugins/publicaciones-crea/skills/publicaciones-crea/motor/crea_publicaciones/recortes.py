@@ -11,7 +11,7 @@ import random
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
-from .base import (BODY, CUERPO, DARK, ILUSTRACIONES, MARGEN, MASCOTA, TITULO, WHITE, B, M, Pieza, T, Y, cubrir,
+from .base import (BODY, CUERPO, DARK, ILUSTRACIONES, MARGEN, MASCOTA, TITULO, WHITE, B, ErrorCREA, M, Pieza, T, Y, cubrir,
                    font, palabras, recortar_capa)
 from .marco import colores_iconos, ruta_icono
 
@@ -22,6 +22,22 @@ BORDE = 20                        # el margen blanco de la copia
 CENTRO_FOTO = (540, 432)
 GIRO = -2.5
 STICKERS = {'creabot': ILUSTRACIONES / 'creabot.png', 'seneca': MASCOTA / 'seneca_baile.png'}
+
+
+def sticker_personaje(nombre):
+    """'creabot' o 'seneca' (los dibujos originales), o una pose: 'creabot:salta', 'seneca:baile-espejo'."""
+    if nombre in STICKERS:
+        return Image.open(STICKERS[nombre]).convert('RGBA')
+    quien, _, pose = nombre.partition(':')
+    from . import personajes
+    if quien == 'creabot' and pose:
+        return personajes.creabot(pose, alto=600)
+    if quien == 'seneca' and pose:
+        return personajes.seneca(pose, alto=600)
+    raise ErrorCREA(f'El sticker "{nombre}" no existe. Usa "creabot", "seneca", "creabot:<pose>" o "seneca:<pose>" '
+                    f'(poses en referencia/personajes.md)')
+
+
 ANCHO_TEXTO = 700                 # deja la columna derecha al sticker
 
 
@@ -220,7 +236,7 @@ def armar(p, foto, *, titulo, bajada, chip, acento, iconos, foco, ajuste, sticke
             lz.alpha_composite(img, (x, y))
             poner(lz, f'bajada-{k}', 'palabra-bajada')
     if sticker:
-        st = Image.open(STICKERS[sticker]).convert('RGBA')
+        st = sticker_personaje(sticker)
         alto = 300
         st = st.resize((round(st.width * alto / st.height), alto), Image.LANCZOS)
         st = st.rotate(6, Image.BICUBIC, expand=True)

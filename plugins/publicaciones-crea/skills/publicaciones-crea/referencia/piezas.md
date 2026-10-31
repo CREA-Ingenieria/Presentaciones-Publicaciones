@@ -32,7 +32,7 @@ Como la crónica, en el mismo marco CREA y con sus `iconos`, sin aliado.
 `estilo` cambia el diseño de la lámina (los datos son los mismos):
 
 - `'marco'` (por defecto): el marco CREA de la crónica.
-- `'recortes'`: collage impreso; papel crema, semitono, la foto pegada con cinta, sello de goma con el `chip`, íconos como stickers y, con `sticker='creabot'` o `'seneca'`, un sticker grande junto al título.
+- `'recortes'`: collage impreso; papel crema, semitono, la foto pegada con cinta, sello de goma con el `chip`, íconos como stickers y, con `sticker='creabot'` o `'seneca'` (o una pose: `'creabot:salta'`, `'seneca:baile-espejo'`; ver `personajes.md`), un sticker grande junto al título.
 - `'arcade'`: pantalla del taller «CREA tu propio videojuego»; barra con `nivel` (el número de lámina), corazones e inventario con los íconos, título pixelado y la bajada en una caja de diálogo con CREABOT, que en los videos se escribe sola.
 
 La línea de `codigo` animada solo va en `'marco'`. Las láminas animadas con HyperFrames y el reel vertical están en `crea_publicaciones.movimiento` (en desarrollo: necesitan Node y Chrome). Se pasan varias en una lista a `entregar()`, que las nombra `carrusel-1`, `carrusel-2`… en ese orden.
@@ -128,7 +128,8 @@ Avisa de: texto fuera de la zona segura o de la cuadrícula del perfil; elemento
 | `.chip(t, x, y, bg, fg)` | Etiqueta redondeada; devuelve `(x, y, ancho, alto)` |
 | `.codigo(texto, x, y, ancho)` | Tarjeta tipo terminal |
 | `.img(ruta, x, y, alto=… o ancho=…)` | Una imagen con transparencia |
-| `.mascota(x, y, alto, pose)` | Séneca, pose `'saludo'` o `'guino'` |
+| `.mascota(x, y, alto, pose, buzo)` | Séneca en cualquier pose de `personajes.md` y con el buzo del color del taller; `'saludo'` y `'guino'` en turquesa pueden parpadear |
+| `.img(imagen, x, y, alto)` | Pega una imagen: una ruta o una pose ya hecha (`creabot('salta')`) |
 | `.logo(ancho=150)` | Logo CREA en la esquina que corresponde al formato |
 | `.segura()` / `.cuadro_perfil()` | Las zonas, para posicionar a mano |
 

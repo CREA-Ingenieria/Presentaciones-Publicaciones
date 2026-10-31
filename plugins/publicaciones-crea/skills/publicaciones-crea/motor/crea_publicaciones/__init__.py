@@ -6,4 +6,5 @@ from .base import (BODY, CUAD, CUERPO, DARK, ETIQ, MARGEN, POST, SOFT, STORY, SU
 from .caption import caption, revisar_caption  # noqa: F401
 from .datos import contacto_reel, por_validar, taller  # noqa: F401
 from .entrega import entregar  # noqa: F401
+from .personajes import creabot, seneca  # noqa: F401
 from .piezas import convocatoria, cronica, historia, lamina  # noqa: F401

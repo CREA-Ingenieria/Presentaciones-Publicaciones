@@ -9,6 +9,7 @@
   <a href="#los-tres-estilos">Estilos</a> &#xa0; | &#xa0;
   <a href="#el-reel">Reel</a> &#xa0; | &#xa0;
   <a href="#animaciones-en-bucle">Animaciones</a> &#xa0; | &#xa0;
+  <a href="#las-mascotas">Mascotas</a> &#xa0; | &#xa0;
   <a href="#flujo-de-trabajo">Flujo</a> &#xa0; | &#xa0;
   <a href="#recursos">Recursos</a> &#xa0; | &#xa0;
   <a href="#instalar">Instalar</a>
@@ -105,6 +106,28 @@ Con acentos claros (turquesa, naranja), la letra sobre el color va oscura para q
 
 Una por pieza y nunca en la primera lámina de un carrusel: si la primera es un video, Instagram muestra el post como reel.
 
+## Las mascotas
+
+Séneca y CREABOT, las mascotas insignia del laboratorio, en muchas más poses para que no salgan siempre iguales.
+
+### CREABOT 🤖
+|Redibujado en vector con las medidas y colores del original: sale nítido a cualquier tamaño y cada pose mueve sus partes. Salta, camina, piensa, celebra, se duerme, y su pecho puede ser una pantalla con un ícono, un texto o una barra de carga.|
+|:-:|
+| <img src="plugins/publicaciones-crea/skills/publicaciones-crea/ejemplos/galeria/personajes-creabot.jpg" width="760"> |
+
+### Séneca 🐐
+|Sus dibujos originales en más variantes: mirando hacia el otro lado (con el logo siempre legible), asomándose desde el borde, la cara en un círculo para avatares, y el buzo en el color de cada taller.|
+|:-:|
+| <img src="plugins/publicaciones-crea/skills/publicaciones-crea/ejemplos/galeria/personajes-seneca.jpg" width="760"> |
+
+```python
+lamina(foto, 'Un robot que sigue la luz', estilo='recortes', sticker='creabot:celebra')
+p.img(creabot('pantalla', alto=300, pantalla='icono:robot'), 700, 900)
+p.mascota(640, 1300, alto=520, pose='asoma', buzo='O')
+```
+
+Cuándo usar cada pose: [`referencia/personajes.md`](plugins/publicaciones-crea/skills/publicaciones-crea/referencia/personajes.md).
+
 ## Flujo de trabajo
 
 <p align="center"><img src="docs/readme/flujo.png" alt="Los pasos de la skill" width="100%"/></p>
@@ -153,6 +176,8 @@ Todo viene dentro del motor: no hay que instalar fuentes, ni ffmpeg, ni PowerPoi
 
 <p align="center"><img src="docs/readme/marca.png" alt="Paleta, Montserrat, Séneca y CREABOT" width="100%"/></p>
 
+**Séneca y CREABOT** en todas sus poses: ver [Las mascotas](#las-mascotas).
+
 **68 íconos** de la actividad, en los colores de la marca:
 
 <p align="center"><img src="docs/readme/iconos.png" alt="Los 68 íconos" width="100%"/></p>
@@ -178,6 +203,7 @@ Presentaciones-Publicaciones/
 └── plugins/publicaciones-crea/skills/publicaciones-crea/
     ├── SKILL.md                       # Las instrucciones para Claude: mapa de decisiones y flujo
     ├── referencia/                    # Guías que Claude lee según la pieza
+    │   ├── personajes.md              # Séneca y CREABOT: poses y cuándo usarlas
     │   ├── estandar.md                # Formatos, retícula, paleta, Séneca
     │   ├── piezas.md                  # Las funciones del motor
     │   ├── estilos.md                 # Cómo elegir marco, recortes o arcade
@@ -188,7 +214,7 @@ Presentaciones-Publicaciones/
     │   └── galeria.md                 # Ejemplos aprobados y por qué funcionan
     ├── ejemplos/                      # Scripts de ejemplo, fotos de demostración y galería
     ├── entorno/revisar.py             # Paso 0: prepara Python, el motor y revisa Node
-    └── motor/crea_publicaciones/      # El motor: piezas, estilos, movimiento, caption, entrega
+    └── motor/crea_publicaciones/      # El motor: piezas, estilos, movimiento, personajes, caption, entrega
         └── recursos/                  # Montserrat, logo, Séneca, CREABOT, íconos, crea.json
 ```
 
