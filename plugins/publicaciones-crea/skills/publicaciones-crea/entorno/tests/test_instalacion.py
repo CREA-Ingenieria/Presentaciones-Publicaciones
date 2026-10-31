@@ -29,7 +29,7 @@ def test_revisar_instala_y_el_motor_funciona_fuera_del_repo(tmp_path):
               "p = convocatoria('Construye tu robot', ['Uno'], 'crea@uniandes.edu.co')\n"
               "r = entregar('salida', p, caption('Hola 🤖', hashtags=['#LaboratorioCREA']))\n"
               "from crea_publicaciones import base; assert 'site-packages' in str(base.RECURSOS)")
-    r2 = subprocess.run([py, '-c', codigo], capture_output=True, text=True, cwd=trabajo)
+    r2 = subprocess.run([py, '-c', codigo], capture_output=True, text=True, encoding='utf-8', cwd=trabajo)
     assert r2.returncode == 0, r2.stderr
     assert (trabajo / 'salida' / 'convocatoria.jpg').is_file()
     r3 = subprocess.run([sys.executable, str(REVISAR), '--datos', str(datos), '--dir', str(trabajo)],

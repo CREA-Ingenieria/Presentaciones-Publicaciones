@@ -68,4 +68,6 @@ def test_skill_md_cuenta_las_decisiones_y_el_paso_cero_animado():
 def test_galeria_enlaza_ejemplos_que_existen():
     doc = (SKILL / 'referencia' / 'galeria.md').read_text(encoding='utf-8')
     for ruta in re.findall(r'`(ejemplos/[^`]+)`', doc):
+        if ruta.startswith('ejemplos/salida'):
+            continue      # la crean los scripts al correr; no está en el repo
         assert (SKILL / ruta).exists(), ruta
